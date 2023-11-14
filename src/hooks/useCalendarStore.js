@@ -1,5 +1,6 @@
 
 import { useDispatch, useSelector } from 'react-redux'
+import { calendarApi } from '../api';
 import { onAddNewEvent, onDeleteEvent, onSetActiveEvent, onUpdateEvent } from '../store';
 
 export const useCalendarStore = () => {
@@ -14,7 +15,7 @@ export const useCalendarStore = () => {
 
   }
 
-  const startSavingEvent = ( calendarEvent ) => {
+  const startSavingEvent = async( calendarEvent ) => {
       //TODO: llegar al backend
 
       //Todo bien
@@ -23,6 +24,8 @@ export const useCalendarStore = () => {
         dispatch( onUpdateEvent( { ...calendarEvent} ) );
       }else{
         //* Creando
+        const { response } = await calendarApi.post('/events',calendarEvent);
+        console.log({response});
         dispatch (onAddNewEvent( {...calendarEvent,_id: new Date().getTime() } ));
 
       }
