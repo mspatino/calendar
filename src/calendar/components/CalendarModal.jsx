@@ -48,8 +48,8 @@ export const CalendarModal = () => {
    
 
    const [formValues, setFormValues] = useState({
-    title:'Sara y Valent',
-    notes:'Patiño',
+    title:'',
+    notes:'',
     start: new Date(),
     end: addHours(new Date(), 2)
    })
