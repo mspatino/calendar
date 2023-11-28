@@ -39,7 +39,7 @@ const isMyEvent = ( user.uid === event.user._id ) || ( user.uid === event.user.i
     const style = {
         backgroundColor: isMyEvent ? '#347CF7' : '#465660',
         borderRadius: '0px',
-        opacity: 0.8,
+        opacity: isSelected ? 1 : 0.8,
         color: 'white'
     }
 
